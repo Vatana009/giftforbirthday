@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Jejeee Thida 😍</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+        }
+        .question {
+            background-color: pink;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+            left: 40%;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            position: absolute;
+        }
+        .yes {
+            background-color: green;
+            color: white;
+            left: 50px;
+        }
+        .no {
+            background-color: red;
+            color: white;
+            left: -50px;
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+        .character {
+            margin-top: 20px;
+            width: 100px;
+            animation: bounce 1.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="question">Do you needs Gift? 🥺</div>
+        <img class="character" src="https://i.pinimg.com/originals/c6/11/8f/c6118fcef4f5a45a5dc261017be6d9a4.gif" alt="Anime Character">
+        <div class="buttons">
+            <button class="btn yes" onclick="window.location.href='happy.html'">Yes</button>
+            <button class="btn no" id="noButton">No</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById("noButton").addEventListener("mouseover", function() {
+            let x = Math.random() * (window.innerWidth - 600);
+            let y = Math.random() * (window.innerHeight - 700);
+            this.style.position = "absolute";
+            this.style.left = x + "px";
+            this.style.top = y + "px";
+        });
+    </script>
+</body>
+</html>

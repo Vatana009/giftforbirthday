@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            font-size: 50px;
+            color: #ff4081;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .balloons {
+            position: absolute;
+            width: 100%;
+            top: 50px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .balloon {
+            width: 50px;
+            height: 70px;
+            background-color: red;
+            border-radius: 50%;
+            animation: floatUp 6s ease-in-out infinite;
+            position: absolute;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100px); opacity: 1; }
+            50% { transform: translateY(-200px); opacity: 0.8; }
+            100% { transform: translateY(-500px); opacity: 0; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: yellow;
+            animation: fall 4s ease-in-out infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-50px); opacity: 1; }
+            50% { transform: translateY(250px); opacity: 0.8; }
+            100% { transform: translateY(500px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday! Jeje Cuteeeee 🎂</h1>
+        <img class="character" src="https://gifdb.com/images/high/cute-happy-birthday-dancing-kawaii-panda-sticker-n7o57h7etuqg6swc.gif" alt="Anime Character">
+        <div class="balloons"></div>
+        <div class="confettis"></div>
+    </div>
+
+    <script>
+        function createBalloon() {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            balloon.style.left = Math.random() * window.innerWidth + 'px';
+            balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            document.querySelector('.balloons').appendChild(balloon);
+            setTimeout(() => balloon.remove(), 6000);
+        }
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * window.innerWidth + 'px';
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            document.querySelector('.confettis').appendChild(confetti);
+            setTimeout(() => confetti.remove(), 4000);
+        }
+        setInterval(createBalloon, 500);
+        setInterval(createConfetti, 200);
+    </script>
+</body>
+</html>
